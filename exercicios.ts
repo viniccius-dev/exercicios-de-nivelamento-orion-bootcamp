@@ -14,14 +14,24 @@ let listProfile: Array<Profile> = [
     {"id" : 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar."}
 ];
 
-// Função para contar as vogais
+/**
+ * Conta o número de vogais em uma palavra fornecida.
+ *
+ * @param word - A palavra na qual as vogais serão contadas.
+ * @returns O número de vogais encontradas na palavra.
+ */
 function countVowels(word: string): number {
     const vowelsFound: RegExpMatchArray | null = word.match(/[aeiouAEIOU]/g);
 
     return vowelsFound ? vowelsFound.length : 0;
 }
 
-// Configuração do formulário de contagem de vogais
+/**
+ * Configura o evento de submissão do formulário de contagem de vogais.
+ * 
+ * O evento previne o comportamento padrão do formulário e exibe um alerta
+ * com o número de vogais na palavra inserida pelo usuário.
+ */
 document.getElementById('vowelForm')?.addEventListener('submit', (event) => {
     event.preventDefault();
     const input = (document.getElementById('vowelInput') as HTMLInputElement).value;
