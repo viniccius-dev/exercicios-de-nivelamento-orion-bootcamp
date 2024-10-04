@@ -1,15 +1,8 @@
 // Função para contar as vogais
 function countVowels(word: string): number {
-    const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
-    let counter = 0;
+    const vowelsFound: RegExpMatchArray | null = word.match(/[aeiouAEIOU]/g);
 
-    for(let letter of word) {
-        if(vowels.includes(letter)) {
-            counter++;
-        }
-    }
-
-    return counter;
+    return vowelsFound ? vowelsFound.length : 0;
 }
 
 // Configuração do formulário de contagem de vogais
