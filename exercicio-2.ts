@@ -19,8 +19,7 @@ let listProfile: Array<Profile> = [
  * @param id - ID do perfil.
  * @returns A biografia do perfil ou undefined se não encontrado.
  */
-
-const getBioByIdFunctional = (id: number) =>
+const getBioByIdFunctional = (id: number): string | undefined =>
     listProfile.find(item => item.id === id)?.bio;
 
 /**
@@ -29,8 +28,7 @@ const getBioByIdFunctional = (id: number) =>
  * @param id - ID do perfil.
  * @returns A biografia do perfil ou undefined se não encontrado.
  */
-
-const getBioByIdImperative = (id: number) => {
+const getBioByIdImperative = (id: number): string | undefined => {
     for (const item of listProfile) {
         if(item.id === id) {
             return item.bio;
@@ -44,8 +42,7 @@ const getBioByIdImperative = (id: number) => {
  * @param id - ID do perfil.
  * @return O nome do perfil ou undefined se não encontrado.
  */
-
-const getNameByIdFunctional = (id: number) =>
+const getNameByIdFunctional = (id: number): string | undefined =>
     listProfile.find(item => item.id === id)?.name;
 
 /**
@@ -54,7 +51,7 @@ const getNameByIdFunctional = (id: number) =>
  * @param id - ID do perfil.
  * @return O nome do perfil ou undefined se não encontrado.
  */
-const getNameByIdImperative = (id: number) => {
+const getNameByIdImperative = (id: number): string | undefined => {
     for (const item of listProfile) {
         if(item.id === id) {
             return item.name;
@@ -68,8 +65,7 @@ const getNameByIdImperative = (id: number) => {
  * @param id - ID do perfil que vai ser apagado.
  * @returns Nova lista sem o perfil que foi apagado
  */
-
-const deleteItemByIdFunctional = (id: number) =>
+const deleteItemByIdFunctional = (id: number): Array<Profile> =>
     listProfile.filter(item => item.id !== id);
 
 /**
@@ -78,8 +74,7 @@ const deleteItemByIdFunctional = (id: number) =>
  * @param id - ID do perfil que vai ser apagado.
  * @returns Nova lista sem o perfil que foi apagado
  */
-
-const deleteItemByIdImperative = (id: number) => {
+const deleteItemByIdImperative = (id: number): void => {
     for (let i = 0; i < listProfile.length; i++) {
         if (listProfile[i].id === id) {
             listProfile.splice(i, 1);
@@ -95,8 +90,7 @@ const deleteItemByIdImperative = (id: number) => {
  * @param newName - Novo nome (Pode ser opcional).
  * @param newBio - Nova biografia (Pode ser opcional).
  */
-
-const updateItemByIdFunctional = (id: number, newName?: string, newBio?: string) => {
+const updateItemByIdFunctional = (id: number, newName?: string, newBio?: string): void => {
     listProfile = listProfile.map(item => 
         item.id === id ? { ...item, name: newName || item.name, bio: newBio || item.bio } : item
     );
@@ -109,8 +103,7 @@ const updateItemByIdFunctional = (id: number, newName?: string, newBio?: string)
  * @param newName - Novo nome (Pode ser opcional).
  * @param newBio - Nova biografia (Pode ser opcional).
  */
-
-const updateItemByIdImperative = (id: number, newName?: string, newBio?: string) => {
+const updateItemByIdImperative = (id: number, newName?: string, newBio?: string): void => {
     for (const item of listProfile) {
         if(item.id === id) {
             if (newName) item.name = newName;
