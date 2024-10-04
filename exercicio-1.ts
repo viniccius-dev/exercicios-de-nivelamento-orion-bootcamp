@@ -1,25 +1,18 @@
 // Função para contar as vogais
 function countVowels(word: string): number {
-    const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
-    let counter = 0;
+    const vowelsFound: RegExpMatchArray | null = word.match(/[aeiouAEIOU]/g);
 
-    for(let letter of word) {
-        if(vowels.includes(letter)) {
-            counter++;
-        }
-    }
-
-    return counter;
+    return vowelsFound ? vowelsFound.length : 0;
 }
 
 // Exemplo de uso com uma palavra de exemplo (Passada como parâmetro)
-const resultOne = countVowels("Example");
+const resultOne: number = countVowels("Example");
 console.log(`A palavra "Example" tem ${resultOne} vogais.`);
 
 // Exemplo de uso com um formulário
-const form = document.createElement('form');
-const input = document.createElement('input');
-const button = document.createElement('button');
+const form: HTMLFormElement = document.createElement('form');
+const input: HTMLInputElement = document.createElement('input');
+const button: HTMLButtonElement = document.createElement('button');
 
 button.innerHTML = 'Contar Vogais';
 
@@ -29,7 +22,7 @@ form.appendChild(button);
 // Adiciona o formulário ao corpo do documento
 document.body.appendChild(form);
 
-form.onsubmit = (event) => {
+form.onsubmit = (event): void => {
     event.preventDefault();
     const inputWord = input.value;
     const resultTwo = countVowels(inputWord);
