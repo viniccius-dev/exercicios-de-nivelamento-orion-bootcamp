@@ -1,0 +1,21 @@
+name: Deploy to Netlify
+
+on:
+  push:
+    branches:
+      - feature/exercicio-3
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy to Netlify
+        uses: netlify/actions/cli@master
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: netlify deploy --prod --dir=.

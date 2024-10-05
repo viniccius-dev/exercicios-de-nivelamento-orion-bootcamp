@@ -6,7 +6,50 @@
     <title>Exercícios de Nivelamento</title>
 </head>
 <body>
+    <h1>Contador de Vogais</h1>
+    <form id="vowelForm">
+        <input type="text" id="vowelInput" placeholder="Digite uma palavra">
+        <button type="submit">Contar Vogais</button>
+    </form>
 
+    <h1>Perfis</h1>
+    <div id="profiles"></div>
+
+    <h1>Tratamento Array</h1>
+
+    <form id="getBioForm">
+        <label for="bioId">Insira o ID para buscar a bio:</label>
+        <input type="number" id="bioId" name="bioId">
+        <button type="submit">Buscar Bio</button>
+    </form>
+
+    <form id="getNameForm">
+        <label for="nameId">Insira o ID para buscar o nome:</label>
+        <input type="number" id="nameId" name="nameId">
+        <button type="submit">Buscar Nome</button>
+    </form>
+
+    <form id="deleteItemForm">
+        <label for="deleteId">Insira o ID para deletar o item:</label>
+        <input type="number" id="deleteId" name="deleteId">
+        <button type="submit">Deletar Item</button>
+    </form>
+
+    <form id="updateItemForm">
+        <label for="updateId">Insira o ID para atualizar o item:</label>
+        <input type="number" id="updateId" name="updateId">
+        <label for="newName">Novo Nome (opcional):</label>
+        <input type="text" id="newName" name="newName">
+        <label for="newBio">Nova Bio (opcional):</label>
+        <input type="text" id="newBio" name="newBio">
+        <button type="submit">Atualizar Item</button>
+    </form>
+
+    <br />
+
+    <div id="output"></div>
+
+    <script src="exercicios.js"></script>
     <script src="exercicio-1.js"></script>
     <script src="exercicio-2.js"></script>
 </body>
